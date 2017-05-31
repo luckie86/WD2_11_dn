@@ -11,29 +11,43 @@
 </div>
 
 
-<div class="table-responsive">
-  <table class="table table-hover">
-    <tr>
+
+  <table class="table table-hover table-responsive" id="forum-table">
+    <thead>
+      <tr>
         <th> Title:</th>
         <th> Updated: </th>
         <th> Author Email: </th>
-    </tr>
-
+      </tr>
+    </thead>
+    <tbody>
 {% for topic in topics|sort(attribute='created', reverse = True) %}
+
       <tr>
           <td> <a href="/topic-details/{{ topic.key.id() }}"> {{ topic.title }}</a></td>
           <td> {{ topic.updated }} </td>
           <td> {{ topic.author_email }} </td>
       </tr>
-{% endfor %}
 
+{% endfor %}
+    </tbody>
   </table>
-</div>
+
 
 {% endblock %}
 
 
 {% block script %}
+
+    <script type="text/javascript" charset="utf8" src="/assets/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="/assets/datatables/js/dataTables.bootstrap.min.js"></script>
+
+
+<script>
+$(document).ready( function () {
+    $('#forum-table').DataTable();
+} );
+</script>
 
 
 

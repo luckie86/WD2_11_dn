@@ -5,8 +5,8 @@ $(document).ready(function () {
     
     $("#add-topic-sum-label").text("What is the sum of " + numberOne + " and " + numberTwo + "?");
     
-    var addTopicButton = $("#add-topic-button")
-    var addTopicSum = $("#add-topic-sum")
+    var addTopicButton = $("#add-topic-button");
+    var addTopicSum = $("#add-topic-sum");
     
     addTopicButton.click(function (e) {
         if (addTopicSum.val() === numSum.toString()) {
